@@ -41,7 +41,7 @@ int MLX90641_I2CRead(uint8_t slaveAddr, uint16_t startAddress, uint16_t nMemAddr
 	
 	int total_bytes = 2*nMemAddressRead;
 	const int div = 128;
-	int factor = (total_bytes)>>7;
+	int factor = (int)(total_bytes)/div;
 	int remainder = (total_bytes)%div;
 	if(remainder!=0) factor++;
 	
